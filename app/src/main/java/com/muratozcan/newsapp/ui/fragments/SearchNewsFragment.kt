@@ -1,4 +1,4 @@
-package com.muratozcan.newsapp.fragments
+package com.muratozcan.newsapp.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

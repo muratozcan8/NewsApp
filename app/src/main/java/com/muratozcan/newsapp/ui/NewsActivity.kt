@@ -1,12 +1,13 @@
-package com.muratozcan.newsapp
+package com.muratozcan.newsapp.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.children
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.muratozcan.newsapp.BuildConfig
+import com.muratozcan.newsapp.R
 import com.muratozcan.newsapp.databinding.ActivityNewsBinding
 
 class NewsActivity : AppCompatActivity() {
@@ -22,5 +23,6 @@ class NewsActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.setupWithNavController(fragment.findNavController())
 
+        Log.e("API_KEY", BuildConfig.API_KEY)
     }
 }
