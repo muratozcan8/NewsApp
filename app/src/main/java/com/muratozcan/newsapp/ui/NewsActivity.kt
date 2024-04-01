@@ -3,16 +3,20 @@ package com.muratozcan.newsapp.ui
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.muratozcan.newsapp.BuildConfig
 import com.muratozcan.newsapp.R
 import com.muratozcan.newsapp.databinding.ActivityNewsBinding
+import com.muratozcan.newsapp.db.ArticleDatabase
+import com.muratozcan.newsapp.repository.NewsRepository
 
 class NewsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityNewsBinding
+    lateinit var viewModel: NewsViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityNewsBinding.inflate(layoutInflater)
@@ -21,8 +25,10 @@ class NewsActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.newsNavHostFragment) as NavHostFragment
         val fragment = navHostFragment.childFragmentManager.fragments[0]
 
+        val newsRepository = NewsRepository(ArticleDatabase(this))
+        val viewModelProviderFactory = NewsViewModelProviderFactory(newsRepository)
+        viewModel = ViewModelProvider(this, viewModelProviderFactory).get(NewsViewModel::class.java)
         binding.bottomNavigationView.setupWithNavController(fragment.findNavController())
 
-        Log.e("API_KEY", BuildConfig.API_KEY)
     }
 }
