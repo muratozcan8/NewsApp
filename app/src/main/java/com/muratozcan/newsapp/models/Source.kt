@@ -1,4 +1,4 @@
-package com.muratozcan.newsapp
+package com.muratozcan.newsapp.models
 
 data class Source(
     val id: String,

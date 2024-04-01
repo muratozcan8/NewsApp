@@ -1,4 +1,4 @@
-package com.muratozcan.newsapp
+package com.muratozcan.newsapp.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

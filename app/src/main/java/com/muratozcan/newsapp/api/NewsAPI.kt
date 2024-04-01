@@ -1,7 +1,7 @@
 package com.muratozcan.newsapp.api
 
 import com.muratozcan.newsapp.BuildConfig
-import com.muratozcan.newsapp.NewsResponse
+import com.muratozcan.newsapp.models.NewsResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
