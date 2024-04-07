@@ -19,7 +19,7 @@ class NewsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         val newsRepository = NewsRepository(ArticleDatabase(this))
-        val viewModelProviderFactory = NewsViewModelProviderFactory(newsRepository)
+        val viewModelProviderFactory = NewsViewModelProviderFactory(application, newsRepository)
         viewModel = ViewModelProvider(this, viewModelProviderFactory)[NewsViewModel::class.java]
         super.onCreate(savedInstanceState)
         binding = ActivityNewsBinding.inflate(layoutInflater)
